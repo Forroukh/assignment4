@@ -52,7 +52,7 @@
                 <div>
                     <label for="">First Class </label>
                     <h6>Total(first class): <span id="totalFirstClass"> $150</span> </h6>
-                    <input id="firstClassInput" type="number" name="">
+                    <input id="firstClassInput" type="number" name="" placeholder="number of ticket?">
                 </div>
                 <div class="plus-minus-btn">
                     <button id="addFirstClass" >ADD</button>
@@ -64,7 +64,7 @@
                 <div>
                     <label for="">Economy Class</label>
                     <h6>Total(Economy Class): <span id="totalEconomyClass">$100</span> </h6>
-                    <input id="economyClassInput" type="number" name="">
+                    <input id="economyClassInput" type="number" name="" placeholder="number of ticket?">
                 </div>
                 <div class="plus-minus-btn">
                     <button id="addEconomyClass" >ADD</button>
@@ -77,7 +77,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                      <h5><span id="subtotal">$500</span> </h5>
                     </div>
                 </div>
 
@@ -143,10 +143,20 @@ document.getElementById('addEconomyClass').addEventListener('click', function(){
            economyInput.value = newCount;
            const total = newCount * 100;
            document.getElementById('totalEconomyClass').innerText ='$' + total;
+           calculateTotal();
         });
 
 
-      
+    //   calculate subtotal
+    function calculateTotal(){
+        const firstClass = document.getElementById('firstClassInput').value;
+        const firstCount = parseInt(firstClass.value);
+        const economyClass = document.getElementById('economyClassInput').value;
+        const economyCount = parseInt(economyClass.value);
+        const totalPrice = firstCount * 150 + economyCount * 100;
+        document.getElementById('subtotal').innerText = '$' + totalPrice;
+    
+    }
     </script>
 </body>
 
