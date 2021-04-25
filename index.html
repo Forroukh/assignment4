@@ -50,21 +50,25 @@
             </div>
             <div class="input-group f-class">
                 <div>
-                    <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <label for="">First Class </label>
+                    <h6>Total(first class): <span id="totalFirstClass"> $150</span> </h6>
+                    <input id="firstClassInput" type="number" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p>+ -</p>
+                    <button id="addFirstClass" >ADD</button>
+                    <button id="removeFirstClass" >REMOVE</button>
                 </div>
             </div>
             
             <div class="input-group f-class">
                 <div>
-                    <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <label for="">Economy Class</label>
+                    <h6>Total(Economy Class): <span id="totalEconomyClass">$100</span> </h6>
+                    <input id="economyClassInput" type="number" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                    <button id="addEconomyClass" >ADD</button>
+                    <button id="removeEconomyClass" >REMOVE</button>
                 </div>
             </div>
             <div class="calculations">
@@ -105,6 +109,45 @@
     </section>
 
     <!--Thank You-->
+    <script>
+        document.getElementById('addFirstClass').addEventListener('click', function(){
+           const firstInput = document.getElementById('firstClassInput');
+           const  firstCount = parseInt(firstInput.value);
+           const newCount = firstCount + 1;
+           firstInput.value = newCount;
+           const total = newCount * 150;
+           document.getElementById('totalFirstClass').innerText ='$' + total;
+        });
+        document.getElementById('removeFirstClass').addEventListener('click', function(){
+           const firstInput = document.getElementById('firstClassInput');
+           const  firstCount = parseInt(firstInput.value);
+           const newCount = firstCount - 1;
+           firstInput.value = newCount;
+           const total = newCount * 150;
+           document.getElementById('totalFirstClass').innerText ='$' + total;
+        });
+
+// Economy class
+document.getElementById('addEconomyClass').addEventListener('click', function(){
+           const economyInput = document.getElementById('economyClassInput');
+           const  economyCount = parseInt(economyInput.value);
+           const newCount = economyCount + 1;
+           economyInput.value = newCount;
+           const total = newCount * 100;
+           document.getElementById('totalEconomyClass').innerText ='$' + total;
+        });
+        document.getElementById('removeEconomyClass').addEventListener('click', function(){
+           const economyInput = document.getElementById('economyClassInput');
+           const  economyCount = parseInt(economyInput.value);
+           const newCount = economyCount - 1;
+           economyInput.value = newCount;
+           const total = newCount * 100;
+           document.getElementById('totalEconomyClass').innerText ='$' + total;
+        });
+
+
+      
+    </script>
 </body>
 
 </html>
